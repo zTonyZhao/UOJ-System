@@ -65,5 +65,13 @@ return [
 	'male' => '男',
 	'female' => '女',
 	'server time' => '服务器时间',
-	'opensource project' => '开源项目'
+	'opensource project' => '开源项目',
+	'erase my account' => '删除我的账户',
+	'danger zone' => '危险地带！',
+	'eula' => '最终用户许可协议',
+	'privacy policy' => '隐私政策',
+	'erase account warning' => '如果您不再希望使用Universal OJ为您提供的服务，您可以点击下方按钮删除您的帐户。',
+	'this operation can not be undone' => '此操作不可逆。',
+	'erase account' => '删除账户',
+	'read and agree' => '我已阅读并同意'
 ];

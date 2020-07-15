@@ -85,6 +85,10 @@
 			<span class="help-block" id="help-password"></span>
 		</div>
 	</div>
+	<div id="div-licence" class="form-group col-sm-3">
+	<label class="checkbox" for="input-licence"><input type="checkbox" id="input-licence"> <?= UOJLocale::get('read and agree') ?> <a href="/eula" target="_blank"><?= UOJLocale::get('eula') ?></a> , <a href="/privacy-policy" target="_blank"><?= UOJLocale::get('privacy policy') ?></a></label>
+		<span class="help-block" id="help-licence"></span>
+	</div>
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-3">
 			<button type="submit" id="button-submit" class="btn btn-secondary"><?= UOJLocale::get('submit') ?></button>
@@ -127,6 +131,7 @@ function validateRegisterPost() {
 		return '';
 	})
 	ok &= getFormErrorAndShowHelp('password', validateSettingPassword);
+	ok &= showErrorHelp('licence', document.getElementById("input-licence").checked ? '' : '请同意使用条款和隐私政策。');
 	return ok;
 }
 
