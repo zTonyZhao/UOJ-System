@@ -52,6 +52,8 @@ return [
 	],
 	'switch' => [
 		'web-analytics' => false,
-		'blog-domain-mode' => 3
+		'blog-domain-mode' => 3,
+		'eula-and-privacy-policy' => true,
+	        'show-cookie-notice' => true
 	]
 ];
