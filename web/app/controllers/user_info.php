@@ -72,7 +72,6 @@
 			<a type="button" class="btn btn-info btn-sm" href="/user/msg?enter=<?= $user['username'] ?>"><span class="glyphicon glyphicon-envelope"></span> <?= UOJLocale::get('send private message') ?></a>
 			<?php else: ?>
 			<a type="button" class="btn btn-info btn-sm" href="/user/modify-profile"><span class="glyphicon glyphicon-pencil"></span> <?= UOJLocale::get('modify my profile') ?></a>
-			<a type="button" class="btn btn-danger btn-sm" href="/user/erase-account"><span class="glyphicon glyphicon-remove"></span> <?= UOJLocale::get('erase my account') ?></a>
 			<?php endif ?>
 			<?php endif ?>
 		

@@ -85,9 +85,9 @@
 			<span class="help-block" id="help-password"></span>
 		</div>
 	</div>
-	<?php if (UOJConfig::$data['switch']['eula-and-privacy-policy']): ?>
+	<?php if (UOJConfig::$data['switch']['eula'] || UOJConfig::$data['switch']['privacy-policy']): ?>
 	<div id="div-licence" class="form-group col-sm-3">
-	<label class="checkbox" for="input-licence"><input type="checkbox" id="input-licence"> <?= UOJLocale::get('read and agree') ?> <a href="/eula" target="_blank"><?= UOJLocale::get('eula') ?></a> , <a href="/privacy-policy" target="_blank"><?= UOJLocale::get('privacy policy') ?></a></label>
+	<label class="checkbox" for="input-licence"><input type="checkbox" id="input-licence"> <?= UOJLocale::get('read and agree') ?> <?php if (UOJConfig::$data['switch']['eula']): ?> <a href="<?= HTML::url('/eula') ?>" target="_blank"><?= UOJLocale::get('eula') ?></a><?php endif ?><?php if (UOJConfig::$data['switch']['privacy-policy']): ?>  <a href="<?= HTML::url('/privacy-policy') ?>" target="_blank"><?= UOJLocale::get('privacy policy') ?></a><?php endif ?> </label>
 		<span class="help-block" id="help-licence"></span>
 	</div>
 	<?php endif ?>

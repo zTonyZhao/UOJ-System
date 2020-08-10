@@ -66,12 +66,10 @@ return [
 	'female' => 'Female',
 	'server time' => 'Server Time',
 	'opensource project' => 'Opensource Project',
-	'erase my account' => 'Erase my Account',
-	'danger zone' => 'Danger Zone!',
 	'eula' => 'EULA',
 	'privacy policy' => 'Privacy Policy',
-	'erase account warning' => 'If you no longer need service from Universal OJ, you can click the button below to erase your account.',
+	'delete user warning' => 'If you no longer need service from this site, you can click the button below to delete your user.',
 	'this operation can not be undone' => 'This operation can not be undone.',
-	'erase account' => 'erase account',
-	'read and agree' => 'I have read and agree to abide by'
+	'delete user' => 'delete user',
+	'read and agree' => 'I have read and agree to'
 ];

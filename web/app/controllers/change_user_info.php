@@ -119,6 +119,14 @@
 			<button type="submit" id="button-submit" class="btn btn-secondary"><?= UOJLocale::get('submit') ?></button>
 		</div>
 	</div>
+	<div class="form-group">
+        <div class="col-sm-offset-2 col-sm-3">
+	<h4><?= UOJLocale::get('delete user') ?></h4>
+	<p><?= UOJLocale::get('delete user warning') ?></p>
+	<p style="color:red"><?= UOJLocale::get('this operation can not be undone') ?></p>
+	<button type="button" class="btn btn-danger"><?= UOJLocale::get('delete user') ?> <?=$myUser['username']?> </button>
+            </div>
+        </div>
 </form>
 
 <script type="text/javascript">
