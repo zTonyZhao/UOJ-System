@@ -4,6 +4,15 @@
 	}
 ?>
 			</div>
+			<!-- START Bootstrap-Cookie-Alert -->
+			<div class="alert text-center cookiealert" role="alert">
+			    <?= UOJLocale::get('cookie alert') ?>
+			    <button type="button" class="btn btn-primary btn-sm acceptcookies">
+			    <?= UOJLocale::get('i agree') ?>
+			    </button>
+			</div>
+			<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+			<!-- END Bootstrap-Cookie-Alert -->
 			<?php if ($ShowPageFooter): ?>
 			<div class="uoj-footer">
 				<div class="btn-group dropright mb-3">

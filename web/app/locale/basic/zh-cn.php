@@ -71,5 +71,7 @@ return [
 	'delete user warning' => '如果您不再希望使用本站为您提供的服务，您可以点击下方按钮删除用户。',
 	'this operation can not be undone' => '此操作不可逆。',
 	'delete user' => '删除用户',
-	'read and agree' => '我已阅读并同意'
+	'read and agree' => '我已阅读并同意',
+	'i agree' => '我同意',
+	'cookie alert' => '我们使用cookie技术确保您在本站的访问体验。'
 ];
