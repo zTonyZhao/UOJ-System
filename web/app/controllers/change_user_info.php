@@ -11,6 +11,27 @@
 		if (!validatePassword($old_password) || !checkPassword($myUser, $old_password)) {
 			return "失败：密码错误。";
 		}
+		if (isset($_POST['del_user'])) {
+			// 
+			DB::update("UPDATE submissions SET submitter='deleted_user' WHERE submitter='{$myUser['username']}'");
+			DB::update("DELETE FROM blogs WHERE poster='{$myUser['username']}'");
+			DB::update("DELETE FROM blogs_comments WHERE poster='{$myUser['username']}'");
+			DB::update("UPDATE click_zans SET username='deleted_user' WHERE username='{$myUser['username']}'");
+			DB::update("DELETE FROM problems_permissions WHERE username='{$myUser['username']}'");
+			DB::update("UPDATE hacks SET hacker='deleted_user' WHERE hacker='{$myUser['username']}'");
+			DB::update("UPDATE hacks SET owner='deleted_user' WHERE owner='{$myUser['username']}'");
+			DB::update("DELETE FROM user_msg WHERE sender='{$myUser['username']}'");
+			DB::update("DELETE FROM user_msg WHERE receiver='{$myUser['username']}'");
+			DB::update("UPDATE custom_test_submissions SET submitter='deleted_user' WHERE submitter='{$myUser['username']}'");
+			DB::update("DELETE FROM user_system_msg WHERE receiver='{$myUser['username']}'");
+			DB::update("UPDATE best_ac_submissions SET submitter='deleted_user' WHERE submitter='{$myUser['username']}'");
+			DB::update("DELETE FROM contests_registrants WHERE username='{$myUser['username']}'");
+			DB::update("DELETE FROM contests_permissions WHERE username='{$myUser['username']}'");
+			DB::update("UPDATE contests_asks SET username='deleted_user' WHERE username='{$myUser['username']}'");
+			DB::update("UPDATE user_info SET usergroup='B',email='admin@example.com',password='f447b20a7fcbf53a5d5be013ea0b15af',rating=1500,qq=0,sex='U',ac_num=0,register_time='',remote_addr='127.0.0.1',http_x_forwarded_for='',motto='' WHERE username='{$myUser['username']}'");
+
+			return "ok";
+		}
 		if ($_POST['ptag']) {
 			$password = $_POST['password'];
 			if (!validatePassword($password)) {
@@ -119,12 +140,25 @@
 			<button type="submit" id="button-submit" class="btn btn-secondary"><?= UOJLocale::get('submit') ?></button>
 		</div>
 	</div>
+</form>
+<div class="alert alert-danger" role="alert">
+  <?= UOJLocale::get('danger zone') ?>
+</div>
+<form id="user-delete" class="form-horizontal">
+	<h4><?= UOJLocale::get('please enter your password for authorization') ?></h4>
+	<div id="div-old_password_deluser" class="form-group">
+		<label for="input-old_password_deluser" class="col-sm-2 control-label"><?= UOJLocale::get('password') ?></label>
+		<div class="col-sm-3">
+			<input type="password" class="form-control" name="old_password_deluser" id="input-old_password_deluser" placeholder="<?= UOJLocale::get('enter your password') ?>" maxlength="20" />
+			<span class="help-block" id="help-old_password_deluser"></span>
+		</div>
+	</div>
+	<h4><?= UOJLocale::get('delete user') ?></h4>
 	<div class="form-group">
         <div class="col-sm-offset-2 col-sm-3">
-	<h4><?= UOJLocale::get('delete user') ?></h4>
 	<p><?= UOJLocale::get('delete user warning') ?></p>
 	<p style="color:red"><?= UOJLocale::get('this operation can not be undone') ?></p>
-	<button type="button" class="btn btn-danger"><?= UOJLocale::get('delete user') ?> <?=$myUser['username']?> </button>
+	<button type="submit" id="button-submit-2" class="btn btn-danger"><?= UOJLocale::get('delete user') ?> <?=$myUser['username']?> </button>
             </div>
         </div>
 </form>
@@ -187,7 +221,76 @@
 			}
 		});
 	}
+	function UserDeletePost() {
+		if (!getFormErrorAndShowHelp('old_password_deluser', validatePassword))
+			return;
+		$.post('/user/modify-profile', {
+			change       : '',
+			del_user     : '',
+			old_password : md5($('#input-old_password_deluser').val(), "<?= getPasswordClientSalt() ?>")
+		}, function(msg) {
+			console.log(msg);
+			if (msg == 'ok') {
+				BootstrapDialog.show({
+					title   : '删除成功',
+					message : '用户删除成功',
+					type    : BootstrapDialog.TYPE_SUCCESS,
+					buttons : [{
+						label: '好的',
+						action: function(dialog) {
+							dialog.close();
+						}
+					}],
+					onhidden : function(dialog) {
+						window.location.href = '<?= HTML::url('/logout?_token='.crsf_token()) ?>';
+					}
+				})
+			}
+			else 
+			{
+				BootstrapDialog.show({
+					title   : '删除失败',
+					message : msg,
+					type    : BootstrapDialog.TYPE_DANGER,
+					buttons  : [{
+						label: '好的',
+						action: function(dialog) {
+							dialog.close();
+						}
+					}]
+				})
+			}
+		})
+	}
+	function deleteuser2step() {
+		BootstrapDialog.show({
+			title   : '确认删除',
+			message : '您确认删除您的账号吗？此过程不可逆。',
+			type    : BootstrapDialog.TYPE_DANGER,
+			buttons : [{
+				label: '确定',
+				action: function(dialog) {
+					UserDeletePost();
+					dialog.close();
+				}
+			},{
+				label: '取消',
+				action: function(dialog) {
+					dialog.close();
+				}
+			}]
+		})
+	}
 	$(document).ready(function(){$('#form-update').submit(function(e) {submitUpdatePost();e.preventDefault();});
+	});
+	$(document).ready(function(){
+		$('#user-delete').submit(
+			function(e) {
+				deleteuser2step();
+				e.preventDefault()
+			}
+		)
+		
 	});
 </script>
 <?php echoUOJPageFooter() ?>

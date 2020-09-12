@@ -71,5 +71,6 @@ return [
 	'delete user warning' => 'If you no longer need service from this site, you can click the button below to delete your user.',
 	'this operation can not be undone' => 'This operation can not be undone.',
 	'delete user' => 'delete user',
-	'read and agree' => 'I have read and agree to'
+	'read and agree' => 'I have read and agree to',
+	'danger zone' => 'Danger zone'
 ];

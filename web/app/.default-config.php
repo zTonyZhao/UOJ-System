@@ -55,6 +55,6 @@ return [
 		'blog-domain-mode' => 3,
 		'eula' => true,
 		'privacy-policy' => true,
-	        'cookie-alert' => true
+	    'cookie-alert' => true
 	]
 ];
