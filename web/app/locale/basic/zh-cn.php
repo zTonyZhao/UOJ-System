@@ -72,5 +72,6 @@ return [
 	'this operation can not be undone' => '此操作不可逆。',
 	'delete user' => '删除用户',
 	'read and agree' => '我已阅读并同意',
-	'danger zone' => '危险区'
+	'danger zone' => '危险区',
+	'export my data' => '导出我的数据'
 ];

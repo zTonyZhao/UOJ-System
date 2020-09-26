@@ -67,6 +67,7 @@ Route::group([
 
 		Route::any('/eula', '/eula.php');
 		Route::any('/privacy-policy', '/privacy_policy.php');
+		Route::any('/export', '/export.php');
 	}
 );
 

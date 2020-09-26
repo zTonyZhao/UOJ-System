@@ -72,5 +72,6 @@ return [
 	'this operation can not be undone' => 'This operation can not be undone.',
 	'delete user' => 'delete user',
 	'read and agree' => 'I have read and agree to',
-	'danger zone' => 'Danger zone'
+	'danger zone' => 'Danger Zone',
+	'export my data' => 'Export my data'
 ];
