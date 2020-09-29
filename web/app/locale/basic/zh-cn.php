@@ -73,5 +73,7 @@ return [
 	'delete user' => '删除用户',
 	'read and agree' => '我已阅读并同意',
 	'i agree' => '我同意',
-	'cookie alert' => '我们使用cookie技术确保您在本站的访问体验。'
+	'cookie alert' => '我们使用cookie技术确保您在本站的访问体验。',
+	'danger zone' => '危险区',
+	'export my data' => '导出我的数据'
 ];

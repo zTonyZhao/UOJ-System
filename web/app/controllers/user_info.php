@@ -72,6 +72,7 @@
 			<a type="button" class="btn btn-info btn-sm" href="/user/msg?enter=<?= $user['username'] ?>"><span class="glyphicon glyphicon-envelope"></span> <?= UOJLocale::get('send private message') ?></a>
 			<?php else: ?>
 			<a type="button" class="btn btn-info btn-sm" href="/user/modify-profile"><span class="glyphicon glyphicon-pencil"></span> <?= UOJLocale::get('modify my profile') ?></a>
+			<a type="button" class="btn btn-secondary btn-sm" href="/export"><span class="glyphicon glyphicon-download"></span> <?= UOJLocale::get('export my data') ?></a>
 			<?php endif ?>
 			<?php endif ?>
 		

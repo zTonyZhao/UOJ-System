@@ -73,5 +73,7 @@ return [
 	'delete user' => 'delete user',
 	'read and agree' => 'I have read and agree to',
 	'i agree' => 'I agree',
-	'cookie alert' => 'We use cookies to ensure you get the best experience on our website.'
+	'cookie alert' => 'We use cookies to ensure you get the best experience on our website.',
+	'danger zone' => 'Danger Zone',
+	'export my data' => 'Export my data'
 ];

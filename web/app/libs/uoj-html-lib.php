@@ -987,5 +987,5 @@ function echoRanklist($config = array()) {
 	}
 	
 	$config['get_row_index'] = '';
-	echoLongTable($col_names, 'user_info', '1', $tail, $header_row, $print_row, $config);
+	echoLongTable($col_names, 'user_info', "1 and usergroup!='B'", $tail, $header_row, $print_row, $config);
 }

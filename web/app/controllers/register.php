@@ -133,7 +133,7 @@ function validateRegisterPost() {
 		return '';
 	})
 	ok &= getFormErrorAndShowHelp('password', validateSettingPassword);
-	<?php if (UOJConfig::$data['switch']['eula-and-privacy-policy']): ?>
+	<?php if (UOJConfig::$data['switch']['eula'] || UOJConfig::$data['switch']['privacy-policy']): ?>
 	ok &= showErrorHelp('licence', document.getElementById("input-licence").checked ? '' : '请同意使用条款和隐私政策。');
 	<?php endif ?>
 	return ok;
